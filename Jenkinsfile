@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent { 
+        docker {
+            image 'docker'  // Usa una imagen Docker que tenga Docker preinstalado
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 
     environment {
         project = 'eoi_devops' 
